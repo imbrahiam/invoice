@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 # Brahiam Montero -> 2022-2034
@@ -183,5 +184,4 @@ template::apply();
     </div>
   </div>
 </body>
-
 </html>

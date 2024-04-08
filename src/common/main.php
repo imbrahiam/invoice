@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 require('functions.php');
@@ -6,3 +7,4 @@ require('functions.php');
 define('BASE_API_URL', 'http://localhost:2034/');
 
 // ENDPOINTS
+

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 # Brahiam Montero -> 2022-2034

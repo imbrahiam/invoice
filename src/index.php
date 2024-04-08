@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html>
 
@@ -67,5 +68,4 @@
     </div>
 
 </body>
-
 </html>

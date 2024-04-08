@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 function fetch($url, $body, $method, $headers)
 {

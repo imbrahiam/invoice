@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 require('../common/main.php');
