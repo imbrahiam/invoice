@@ -50,6 +50,32 @@ class Template
     {
 
 ?>
+        <?php
+        if (!defined('CURRENT_PAGE')) {
+            define('CURRENT_PAGE', '');
+        }
+
+        session_start();
+
+        // Comprobar si el usuario está logueado
+        if (!isset($_SESSION['usuario'])) {
+            // El usuario no está logueado, redirigir a la página de inicio de sesión
+            header('Location: login.php');
+            exit();
+        }
+
+        // Comprobar si el botón de salida ha sido pulsado
+        if (isset($_POST['salir'])) {
+            // Cerrar la sesión
+            session_unset();
+            session_destroy();
+
+            // Redirigir al usuario a la página de inicio de sesión
+            header('Location: login.php');
+            exit();
+        }
+
+        ?>
         <!DOCTYPE html>
         <html lang="en">
 
@@ -60,33 +86,6 @@ class Template
             <meta http-equiv="x-ua-compatible" content="ie=edge" />
             <meta name="description" content="" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-            <?php
-            if (!defined('CURRENT_PAGE')) {
-                define('CURRENT_PAGE', '');
-            }
-
-            session_start();
-
-            // Comprobar si el usuario está logueado
-            if (!isset($_SESSION['usuario'])) {
-                // El usuario no está logueado, redirigir a la página de inicio de sesión
-                header('Location: login.php');
-                exit();
-            }
-
-            // Comprobar si el botón de salida ha sido pulsado
-            if (isset($_POST['salir'])) {
-                // Cerrar la sesión
-                session_unset();
-                session_destroy();
-
-                // Redirigir al usuario a la página de inicio de sesión
-                header('Location: login.php');
-                exit();
-            }
-
-            ?>
         </head>
         <div class="h-screen">
 
