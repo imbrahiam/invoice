@@ -1,8 +1,8 @@
-<<<<<<< HEAD
 <?php
 
 # Brahiam Montero -> 2022-2034
-require("../common/template.php");
+require_once "../common/main.php";
+
 define('CURRENT_PAGE', 'home');
 template::apply();
 
