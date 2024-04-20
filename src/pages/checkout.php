@@ -65,6 +65,7 @@ $bill = new Bill();
   </div>
 </div>
 <div id="print" class="w-1/2" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+  <br>  
   <div class="pointer-events-auto w-screen max-w-md ml-auto">
     <div class="flex h-full flex-col bg-white shadow-xl rounded-md">
       <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6 ">

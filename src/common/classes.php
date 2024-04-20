@@ -41,7 +41,7 @@ class Template
         return self::$instance;
     }
 
-    function href($path)
+    public static function href($path)
     {
         return $path;
     }
@@ -64,6 +64,26 @@ class Template
             <?php
             if (!defined('CURRENT_PAGE')) {
                 define('CURRENT_PAGE', '');
+            }
+
+            session_start();
+
+            // Comprobar si el usuario está logueado
+            if (!isset($_SESSION['usuario'])) {
+                // El usuario no está logueado, redirigir a la página de inicio de sesión
+                header('Location: login.php');
+                exit();
+            }
+
+            // Comprobar si el botón de salida ha sido pulsado
+            if (isset($_POST['salir'])) {
+                // Cerrar la sesión
+                session_unset();
+                session_destroy();
+
+                // Redirigir al usuario a la página de inicio de sesión
+                header('Location: login.php');
+                exit();
             }
 
             ?>
@@ -104,6 +124,16 @@ class Template
                                         <span class="ml-3 block text-sm font-medium">DO</span>
                                     </a>
                                 </div>
+                                <form method="post" action="">
+
+                                    <button type="submit" name="salir" class="ml-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                        <span class="sr-only">Icon description</span>
+                                    </button>
+                                </form>
+
                                 <div class="hidden lg:ml-8 lg:flex">
                                 </div>
                             </div>

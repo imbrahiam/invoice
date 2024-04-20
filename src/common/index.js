@@ -136,6 +136,8 @@ getEl("printBtn").addEventListener("click", async (e) => {
     const postedBill = await postBill(billHash, postedClient.id);
     console.log(postedBill);
 
+    let factura = `<h2>Facturación # ${billHash}</h2><table><tr><th>Producto</th><th>Cantidad</th><th>Subtotal</th></tr>`;
+    let total = 0;
     for (var li of items) {
       const upperItem = li.children[1].children[0].children[0];
       const name = upperItem.children[0].innerText;
@@ -165,12 +167,27 @@ getEl("printBtn").addEventListener("click", async (e) => {
       console.log(updatedProduct);
 
       console.log(itemInserted);
+
+      // Añadir el producto a la factura
+      factura += `<tr><td>${name}</td><td>${quantity}</td><td>${subtotal}</td></tr>`;
+      total += subtotal;
     }
+    factura += `</table><h2>Total: ${total}</h2>`;
+
+    // Crear una nueva ventana y escribir la factura en ella
+    var ventana = window.open("", "_blank");
+    ventana.document.write("<html><head><title>Imprimir</title></head><body>");
+    ventana.document.write(factura);
+    ventana.document.write("</body></html>");
+    ventana.document.close();
+
+    // Abrir el cuadro de diálogo de impresión
+    ventana.print();
+    location.reload();
+  } else {
+    alert("Por favor llena los datos de facturación");
   }
 
-  // Imprimir
-
-  location.reload();
   updateProductsComponent();
 });
 
