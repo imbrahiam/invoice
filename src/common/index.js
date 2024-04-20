@@ -183,6 +183,7 @@ getEl("printBtn").addEventListener("click", async (e) => {
 
     // Abrir el cuadro de diálogo de impresión
     ventana.print();
+    ventana.close();
     location.reload();
   } else {
     alert("Por favor llena los datos de facturación");
