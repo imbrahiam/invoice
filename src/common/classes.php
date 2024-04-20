@@ -49,8 +49,6 @@ class Template
     function __construct()
     {
 
-?>
-        <?php
         if (!defined('CURRENT_PAGE')) {
             define('CURRENT_PAGE', '');
         }
@@ -74,10 +72,11 @@ class Template
             header('Location: login.php');
             exit();
         }
-
-        ?>
+?>
         <!DOCTYPE html>
         <html lang="en">
+
+
 
         <head>
             <meta charset="UTF-8">
@@ -86,12 +85,11 @@ class Template
             <meta http-equiv="x-ua-compatible" content="ie=edge" />
             <meta name="description" content="" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
         </head>
         <div class="h-screen">
 
             <header class="relative bg-white">
-                <p class="flex h-10 items-center justify-center bg-indigo-600 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">Software de la rubia en desarrollo</p>
-
                 <nav aria-label="Top" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="border-b border-gray-200">
                         <div class="flex h-16 items-center">

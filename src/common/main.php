@@ -4,7 +4,8 @@
 $requires = array("classes", "functions");
 
 foreach ($requires as $r) {
-    require_once __DIR__ . "\\$r.php";
+    //require_once __DIR__ . "\\$r.php";
+    require $r . '.php';
 }
 
 
